@@ -33,6 +33,14 @@ public class SimpleTest
 
 	    pm.makePersistent( acct );
 
+
+	    javax.jdo.Query query = pm.newQuery( Address.class );
+	    java.util.List<Address> results = query.executeList();
+	    for( Address address : results )
+	    {
+		    System.out.println( "address: " + address + "\t" + address.getAccount() );
+	    }
+
             tx.commit();
         }
         catch (Throwable thr)
