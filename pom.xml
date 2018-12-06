@@ -46,9 +46,9 @@
 
         <!-- Change to the datastore driver required for your datastore -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.3.168</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.23</version>
         </dependency>
 
         <dependency>

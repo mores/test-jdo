@@ -23,6 +23,15 @@ public class SimpleTest
             tx.begin();
 
             // [INSERT code here to persist object required for testing]
+	    Account acct = new Account();
+
+	    Address addr1 = new Address();
+	    acct.getAddresses().add( addr1 );
+
+	    Address addr2 = new Address();
+            acct.getAddresses().add( addr2 );
+
+	    pm.makePersistent( acct );
 
             tx.commit();
         }
