@@ -23,6 +23,7 @@ public class SimpleTest
             tx.begin();
 
             // [INSERT code here to persist object required for testing]
+	    /*
 	    Account acct = new Account();
 
 	    Address addr1 = new Address();
@@ -40,6 +41,11 @@ public class SimpleTest
 	    {
 		    System.out.println( "address: " + address + "\t" + address.getAccount() );
 	    }
+	    */
+
+	    javax.jdo.Query query = pm.newQuery( Account.class );
+	    long deleted = query.deletePersistentAll();
+	    System.out.println( "deleted: " + deleted );
 
             tx.commit();
         }

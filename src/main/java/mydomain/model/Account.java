@@ -10,6 +10,7 @@ public class Account
     Long id;
 
     @Persistent(mappedBy="account")
+    @Element( types = Address.class, dependent="true" )
     @Join
     @Order(column="ORDER_IDX")
     java.util.Collection<Address> addresses = new java.util.ArrayList<>();
