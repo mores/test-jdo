@@ -14,7 +14,7 @@ public class SimpleTest
     public void testSimple()
     {
         NucleusLogger.GENERAL.info(">> test START");
-        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("MyTest");
+        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
@@ -23,29 +23,32 @@ public class SimpleTest
             tx.begin();
 
             // [INSERT code here to persist object required for testing]
-	    /*
 	    Account acct = new Account();
 
-	    Address addr1 = new Address();
-	    acct.getAddresses().add( addr1 );
+	    BillAddress addr1 = new BillAddress();
+	    addr1.setAccount( acct );
+	    acct.getBillAddresses().add( addr1 );
 
-	    Address addr2 = new Address();
-            acct.getAddresses().add( addr2 );
+	    ShipAddress addr2 = new ShipAddress();
+	    addr2.setAccount( acct );
+            acct.getShipAddresses().add( addr2 );
 
 	    pm.makePersistent( acct );
 
-
+		/*
 	    javax.jdo.Query query = pm.newQuery( Address.class );
 	    java.util.List<Address> results = query.executeList();
 	    for( Address address : results )
 	    {
 		    System.out.println( "address: " + address + "\t" + address.getAccount() );
 	    }
-	    */
+	    	*/
 
+	    /*
 	    javax.jdo.Query query = pm.newQuery( Account.class );
 	    long deleted = query.deletePersistentAll();
 	    System.out.println( "deleted: " + deleted );
+	    */
 
             tx.commit();
         }

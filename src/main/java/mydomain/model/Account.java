@@ -9,14 +9,25 @@ public class Account
     @Persistent( valueStrategy = IdGeneratorStrategy.IDENTITY )
     Long id;
 
-    @Persistent(mappedBy="account")
-    @Element( types = Address.class, dependent="true" )
+    @Persistent
+    @Element( types = BillAddress.class, dependent="true", mappedBy="account" )
     @Join
     @Order(column="ORDER_IDX")
-    java.util.Collection<Address> addresses = new java.util.ArrayList<>();
+    java.util.Collection<BillAddress> billAddresses = new java.util.ArrayList<>();
 
-    public java.util.Collection<Address> getAddresses()
+    public java.util.Collection<BillAddress> getBillAddresses()
     {
-	    return addresses;
+            return billAddresses;
+    }
+
+    @Persistent
+    @Element( types = ShipAddress.class, dependent="true", mappedBy="account" )
+    @Join
+    @Order(column="ORDER_IDX")
+    java.util.Collection<ShipAddress> shipAddresses = new java.util.ArrayList<>();
+
+    public java.util.Collection<ShipAddress> getShipAddresses()
+    {
+            return shipAddresses;
     }
 }

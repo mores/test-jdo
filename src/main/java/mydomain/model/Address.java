@@ -15,4 +15,9 @@ public class Address
     {
 	    return account;
     }
+
+    public void setAccount( Account account )
+    {
+	    this.account = account;
+    }
 }
